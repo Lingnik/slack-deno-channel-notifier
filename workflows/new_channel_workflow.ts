@@ -4,7 +4,7 @@ import { DefineWorkflow, Schema } from "deno-slack-sdk/mod.ts";
  * This workflow posts an announcement in a channel when a new channel is created.
  */
 
-const announcementChannel = "C04BW0JFV5L";
+const announcementChannel = "C0JEXA9D1";
 
 const workflow = DefineWorkflow({
   callback_id: "new-channel-announcement-workflow",
