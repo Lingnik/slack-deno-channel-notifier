@@ -1,5 +1,6 @@
 import { Manifest } from "deno-slack-sdk/mod.ts";
-import workflow from "./workflows/new_channel_workflow.ts";
+import channel_created_workflow from "./workflows/channel_created_workflow.ts";
+import channel_unarchived_workflow from "./workflows/channel_unarchived_workflow.ts";
 
 /**
  * The app manifest contains the app's configuration. This
@@ -7,11 +8,10 @@ import workflow from "./workflows/new_channel_workflow.ts";
  * https://api.slack.com/automation/manifest
  */
 export default Manifest({
-  name: "new-channel-notifier",
-  description:
-    "Use a workflow and trigger to announce new channels to a channel of your choice.",
+  name: "channel-notifier",
+  description: "Announces new and unarchived channels.",
   icon: "assets/loaf.png",
-  workflows: [workflow],
+  workflows: [channel_created_workflow, channel_unarchived_workflow],
   outgoingDomains: [],
   features: {
     appHome: {

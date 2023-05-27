@@ -6,9 +6,9 @@ import { DefineWorkflow, Schema } from "deno-slack-sdk/mod.ts";
 
 const announcementChannel = "C0JEXA9D1";
 
-const workflow = DefineWorkflow({
-  callback_id: "new-channel-announcement-workflow",
-  title: "New Channel Announcement Workflow",
+const channel_created_workflow = DefineWorkflow({
+  callback_id: "channel-created-announcement-workflow",
+  title: "Channel Created Announcement Workflow",
   input_parameters: {
     properties: {
       channel_id: {
@@ -25,10 +25,10 @@ const workflow = DefineWorkflow({
 });
 
 // Send a message in a channel using the built-in function
-workflow.addStep(Schema.slack.functions.SendMessage, {
+channel_created_workflow.addStep(Schema.slack.functions.SendMessage, {
   channel_id: announcementChannel,
   message:
-    `Channel <#${workflow.inputs.channel_id}> was created by <@${workflow.inputs.creator_id}>`,
+    `Channel <#${channel_created_workflow.inputs.channel_id}> was created by <@${channel_created_workflow.inputs.creator_id}>`,
 });
 
-export default workflow;
+export default channel_created_workflow;

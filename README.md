@@ -1,10 +1,9 @@
-# Hello World
+# channel-notifier
 
-This automation sends an announcement to a channel when new channels are
-created.
+This automation sends an announcement to a channel when new channels are created or unarchived.
 
-Customize the channel ID in workflows/new_channel_workflow.ts to send the
-announcement to a different channel.
+Customize the channel IDs in `workflows/channel_created_workflow.ts` and `workflows/channel_unarchived_workflow`
+to send the announcements to a different channel.
 
 **Guide Outline**:
 
@@ -52,7 +51,8 @@ To stop running locally, press `<CTRL> + C` to end the process.
 To manually create a trigger, use the following command:
 
 ```zsh
-$ slack trigger create --trigger-def triggers/channel_created.ts
+$ slack trigger create --trigger-def triggers/channel_created_trigger.ts
+$ slack trigger create --trigger-def triggers/channel_unarchived_trigger.ts
 ```
 
 ## Deploying Your App
