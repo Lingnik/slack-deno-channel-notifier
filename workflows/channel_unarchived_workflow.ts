@@ -5,6 +5,7 @@ import { DefineWorkflow, Schema } from "deno-slack-sdk/mod.ts";
  */
 
 const announcementChannel = "C0JEXA9D1";
+// const announcementChannel = "C04BW0JFV5L"; // dev
 
 const channel_unarchived_workflow = DefineWorkflow({
   callback_id: "channel-unarchived-announcement-workflow",
